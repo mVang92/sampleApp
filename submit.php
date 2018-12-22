@@ -8,19 +8,31 @@
         <?php
         // New $name variable will capture value from name="name"
         // Accomplishes this via $_POST[]
-        $name = $_POST["name"];
-        $favFood = $_POST["favFood"];
+        $name = filter_input(INPUT_POST, "name");
+        $favFood = filter_input(INPUT_POST, "favFood");
         if (!empty($name) && !empty($favFood)){
             $host = "localhost";
             $dbUserName = "root";
             $dbPassword = "root";
             $dbName = "sample";
-            echo "Hello, " . $name . ". Your favourite food is " . $favFood . ".";
+            // MySQL Connection
+            $connection = new mysqli ($host, $dbUserName, $dbPassword, $dbName);
+            if (mysqli_connect_error()){
+                die('Connect Error ('. mysqli_connect_errno() .') '
+                  . mysqli_connect_error());
+            } else {
+                // SQL Query
+                $sql = "INSERT INTO account (name, favFood) values ('$name','$favFood')";
+                if ($connection->query($sql)){
+                    echo "Hello, " . $name . ". Your favourite food is " . $favFood . ".";
+                } else {
+                    echo "Error: ". $sql ."<br>". $connection->error;
+                }
+                $connection->close();
+            } 
         } else {
             echo "Input values cannot be of type null.";
-        };
-        // MySQL Connection
-
+        };        
         ?>
         <div>
             <button onclick="home()">Back</button>
