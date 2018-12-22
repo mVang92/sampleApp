@@ -10,7 +10,17 @@
         // Accomplishes this via $_POST[]
         $name = $_POST["name"];
         $favFood = $_POST["favFood"];
-        echo "Hello, " . $name . ". Your favourite food is " . $favFood . ".";
+        if (!empty($name) && !empty($favFood)){
+            $host = "localhost";
+            $dbUserName = "root";
+            $dbPassword = "root";
+            $dbName = "sample";
+            echo "Hello, " . $name . ". Your favourite food is " . $favFood . ".";
+        } else {
+            echo "Input values cannot be of type null.";
+        };
+        // MySQL Connection
+
         ?>
         <div>
             <button onclick="home()">Back</button>
