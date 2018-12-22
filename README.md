@@ -1,2 +1,2 @@
 # sampleApp
-Sample App
+Sample App using PHP
