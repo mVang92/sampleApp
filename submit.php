@@ -8,8 +8,13 @@
         <?php
         // New $name variable will capture value from name="name"
         // Accomplishes this via $_POST[]
-        $name = filter_input(INPUT_POST, "name");
-        $favFood = filter_input(INPUT_POST, "favFood");
+        $name = $_POST["name"];
+        $favFood = $_POST["favFood"];
+        // Can also use the filter_input function as shown below
+        // $name = filter_input(INPUT_POST, "name");
+        // $favFood = filter_input(INPUT_POST, "favFood");
+        
+        // Name and favourite food cannot be null
         if (!empty($name) && !empty($favFood)){
             $host = "localhost";
             $dbUserName = "root";
@@ -29,7 +34,7 @@
                     echo "Error: ". $sql ."<br>". $connection->error;
                 }
                 $connection->close();
-            } 
+            }
         } else {
             echo "Input values cannot be of type null.";
         };        
