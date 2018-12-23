@@ -17,28 +17,27 @@
         $host = "localhost";
         $dbUserName = "root";
         $dbPassword = "root";
-        $dbName = "sample";
-
+        $dbName = "users";
+        // MySQL Connection
+        $connection = new mysqli ($host, $dbUserName, $dbPassword, $dbName);
         // Name and favourite food cannot be null
         if (!empty($name) && !empty($favFood)){
-            
-            // MySQL Connection
-            $connection = new mysqli ($host, $dbUserName, $dbPassword, $dbName);
             if (mysqli_connect_error()){
+                echo "<a href='/sampleApp'>← Back To Home</a><br>";
                 die('Connect Error ('. mysqli_connect_errno() .') '
                   . mysqli_connect_error());
             } else {
                 // SQL Query
-                $sql = "INSERT INTO account (name, favFood) values ('$name','$favFood')";
-                if ($connection->query($sql)){
+                $query = "INSERT INTO account (name, favFood) VALUES ('$name','$favFood')";
+                if ($connection->query($query)){
                     echo "Hello, " . $name . ". Your favourite food is " . $favFood . ".";
                 } else {
-                    echo "Error: ". $sql ."<br>". $connection->error;
+                    echo "Error: ". $query ."<br>". $connection->error;
                 }
                 $connection->close();
             }
         } else {
-            echo "Input values cannot be of type null.";
+            echo "Cannot leave empty input values.";
         };        
         ?>
         <div>
