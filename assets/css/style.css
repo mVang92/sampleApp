@@ -5,3 +5,12 @@ body {
 .form {
     text-align: center;
 }
+
+.results {
+    margin: auto;
+    margin-top: 10px;
+    border: 1px solid black;
+    background: white;
+    padding: 5px;
+    width: 50%;
+}

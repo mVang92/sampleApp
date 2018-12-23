@@ -43,7 +43,8 @@
         };        
         ?>
         <div>
-            <button onclick="home()">Back</button>
+            <br>
+            <a href="/sampleApp">← Back To Home</a>
         </div>
     </div>
 </body>
