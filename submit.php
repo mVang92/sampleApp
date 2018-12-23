@@ -3,7 +3,6 @@
 <head>
     <title>Hello, User</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="assets/logic/submit.js"></script>
 </head>
 <body>
     <div class="form">
