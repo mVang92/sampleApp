@@ -1,0 +1,10 @@
+DROP DATABASE IF EXISTS sample;
+CREATE DATABASE sample;
+USE sample;
+
+CREATE TABLE account (
+	id INT NOT NULL AUTO_INCREMENT,
+	name VARCHAR(25) NOT NULL,
+    favFood VARCHAR(25) NOT NULL,
+    PRIMARY KEY (id)
+);

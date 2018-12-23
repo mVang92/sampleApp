@@ -1,2 +1,2 @@
 # sampleApp
-Sample App using PHP
+Just a fun little app with PHP and MySQL
